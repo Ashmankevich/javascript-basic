@@ -111,6 +111,82 @@ age > 18
   ? console.log("You can drink Cola")
   : "Oopss";
 
+/*
+  Task 7 💻
+  Напишем программу для туристического терминала. Запросите у пользователя в какую сторону света он бы хотел отправиться.
+  После ввода данных мы должны вывести в консоль сообщение из списка. 
+  Если пользователь ввел неверные данные, выведите сообщение в консоль чтобы он попробовал еще раз.
+  
+  юг на юг пойдешь счастье найдешь
+  север на север пойдешь много денег найдешь
+  запад на запад пойдешь верного друга найдешь
+  восток на восток пойдешь разработчиком станешь
+  Используйте конструкцию switch
+*/
+
+let getDirection = prompt("where do you want to go?");
+
+switch (getDirection) {
+  case "North":
+    console.log("If you go to North you will be rich person");
+    break;
+  case "West":
+    console.log("If you go to West you will find best friend");
+    break;
+  case "East":
+    console.log("If you go to East you will be FrontEnd developer");
+    break;
+  case "South":
+    console.log("If you go to South you will be happy person");
+    break;
+  default:
+    console.log("Your data is wrong, pleasem try again");
+}
+
+//ADVANCED level
+
+//Task 2 👨‍🏫
+/*
+Написать программу, которая выполняет следующие операции:
+
+Запрашивает у пользователя число.
+Последовательно задает вопрос: cколько отнять / прибавить / умножить / разделить от предыдущего результата?
+По окончании вывести пользователю alert, содержащий формулу и результат например:
+((((6 - 10) + 5) * 20) / 2 = 110)
+*/
+
+let randomNumber = +prompt("Please, enter the number", "");
+
+let add = +prompt("How much to add?", "");
+
+let subtract = +prompt("How much to subtract?", "");
+
+let multiplication = +prompt("How much multiply by?", "");
+
+let division = +prompt("How much division by?", "");
+
+console.log(
+  `(((${randomNumber} + ${add} - ${subtract})* ${multiplication})/ ${division} )= ${
+    ((randomNumber + add - subtract) * multiplication) / division
+  }`
+);
+
+/*
+Task 3 👨‍🏫
+Написать программу, которая будет выводить в консоль лесенку.
+
+    #
+    ##
+    ###
+    ####
+    #####
+    ######
+*/
+
+for (let k = 0; k < l; l++) {
+  console.log("#");
+}
+
 //task of 'learn JS': bonus 1
 
 let answer = prompt("What is official name of JavaScript", "");
@@ -247,4 +323,76 @@ nextPrime: for (let i = 2; i <= num; i++) {
     if (i % j == 0) continue nextPrime;
   }
   console.log(i);
+}
+
+//task of 'learn JS': bonus 9
+
+/*
+Напишите if..else, соответствующий следующему switch:
+
+switch (browser) {
+  case 'Edge':
+    console.log( "You've got the Edge!" );
+    break;
+
+  case 'Chrome':
+  case 'Firefox':
+  case 'Safari':
+  case 'Opera':
+    console.log( 'Okay we support these browsers too' );
+    break;
+
+  default:
+    console.log( 'We hope that this page looks ok!' );
+}
+*/
+
+let browser = prompt("Enter browser you used", "");
+
+if (
+  browser === "Chrome" ||
+  browser === "Firefox" ||
+  browser === "Safari" ||
+  browser === "Opera"
+) {
+  console.log("Okay we support these browsers too");
+} else if (browser == "Edge") {
+  console.log("You've got the Edge!");
+} else {
+  console.log("We hope that this page looks ok!");
+}
+
+//task of 'learn JS': bonus 10
+
+/*
+Перепишите код с использованием одной конструкции switch:
+
+const number = +prompt('Введите число между 0 и 3', '');
+
+if (number === 0) {
+  alert('Вы ввели число 0');
+}
+
+if (number === 1) {
+  alert('Вы ввели число 1');
+}
+
+if (number === 2 || number === 3) {
+  alert('Вы ввели число 2, а может и 3');
+}
+*/
+
+const numberTask10 = +prompt("Введите число между 0 и 3", "");
+
+switch (numberTask10) {
+  case 0:
+    console.log("Вы ввели число 0");
+    break;
+  case 1:
+    console.log("Вы ввели число 1");
+    break;
+  case 2:
+  case 3:
+    console.log("Вы ввели число 2, а может и 3");
+    break;
 }
