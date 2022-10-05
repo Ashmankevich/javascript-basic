@@ -398,3 +398,47 @@ switch (numberTask10) {
     console.log("Вы ввели число 2, а может и 3");
     break;
 }
+
+//task of 'learn JS': bonus 11
+
+/*
+С помощью двух вложенных циклов выведите на экран следующую строку (или столбец):
+111222333444555666777888999
+*/
+
+for (let z = 1; z < 10; z++) {
+  for (let x = 0; x < 3; x++) {
+    document.write(z);
+  }
+}
+
+//task of 'learn JS': bonus 12
+
+/*
+Use two nested loops to display the following string or column:
+11 12 13 21 22 23 31 32 33
+*/
+
+for (let c = 10; c < 40; c = c + 10) {
+  for (let v = 1; v <= 3; v++) {
+    const num = c + v;
+    document.write(num + " ");
+  }
+}
+
+//task of 'learn JS': bonus 13
+
+/*
+С помощью вложенных циклов, нарисуйте строку:
+
+***_***_***_
+*/
+
+for (let b = 0; b < 3; b++) {
+  for (let n = 0; n < 3; n++) {
+    const star = "*";
+    document.write(star);
+  }
+  const line = "_";
+  document.write(line);
+}
