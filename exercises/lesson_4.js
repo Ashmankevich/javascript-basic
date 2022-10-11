@@ -203,12 +203,93 @@ Task 5 💻
     getSum(-1, 2) == 2  // -1 + 0 + 1 + 2 = 2
 */
 
-function getSum(a, b) {
+//the wrong way
+
+function getNumberOne(a) {
+  let sum = 0;
   if (a > 0) {
+    for (let i = 0; i <= a; i++) {
+      sum += i;
+    }
+  } else {
+    for (let i = 0; i >= a; i--) {
+      sum += i;
+    }
   }
-  return;
+  return sum;
 }
-getSum(1, 1);
+
+function getNumberTwo(a) {
+  let sum = 0;
+  if (a > 0) {
+    for (let i = 0; i <= a; i++) {
+      sum += i;
+    }
+  } else {
+    for (let i = 0; i >= a; i--) {
+      sum += i;
+    }
+  }
+  return sum;
+}
+
+function getResult(a, b) {
+  return a + b;
+}
+getResult(getNumberOne(-2), getNumberOne(6));
+
+//the right way
+
+function getSum(a, b) {
+  let sum = 0;
+  if (a < b) {
+    for (i = a; i <= b; i++) {
+      sum += i;
+    }
+  } else if (a > b) {
+    for (i = a; i >= b; i--) {
+      sum += i;
+    }
+  } else {
+    sum = a;
+  }
+  return sum;
+}
+getSum(6, -2);
+
+let getSumElse = function (a, b) {
+  let sum = 0;
+  if (a < b) {
+    for (i = a; i <= b; i++) {
+      sum += i;
+    }
+  } else if (a > b) {
+    for (i = a; i >= b; i--) {
+      sum += i;
+    }
+  } else {
+    sum = a;
+  }
+  return sum;
+};
+getSumElse(6, -2);
+
+let getSumOneElse = (a, b) => {
+  let sum = 0;
+  if (a < b) {
+    for (i = a; i <= b; i++) {
+      sum += i;
+    }
+  } else if (a > b) {
+    for (i = a; i >= b; i--) {
+      sum += i;
+    }
+  } else {
+    sum = a;
+  }
+  return sum;
+};
+getSumOneElse(-3, 3);
 
 /*
 Task 6 💻
