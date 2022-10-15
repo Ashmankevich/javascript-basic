@@ -357,6 +357,7 @@ Task 3 👨‍🏫
 После того, как вы посчитаете сумму покупки, прибавьте налог, затем выведите на экран вычисленную сумму покупки,
 правильно отформатировав её.
 Наконец, сверьте сумму с балансом вашего банковского счета, чтобы понять можете вы себе это позволить или нет.
+
 Вы должны настроить некоторые константы для «ставки налога», «цены телефона», «цены аксессуара»,
 также как и переменную для вашего «баланса банковского счета».
 Вам следует определить функции для вычисления налога и для форматирования цены
@@ -365,21 +366,39 @@ Task 3 👨‍🏫
 Вы можете, например, запросить у пользователя баланс банковского счета. Развлекайтесь и будьте изобретательны!
 */
 
-const balance = +prompt("Please, enter your balance", "");
+const balance = +prompt("Please, enter your balance", " ");
+
 const rate = 20;
 const item = 1000;
 const accessories = 150;
+const minBalance = checkBalance(rate, item, accessories);
 
-const minBalance = (item + accessories) * (rate / 100) + item + accessories;
-
-function buyItem() {
-  if (balance > minBalance) {
-    let sum = 0;
-    for (let i = 0; sum < balance; i++) {
-      sum = balance - item;
-    }
+if (balance > minBalance) {
+  let phone;
+  phone = confirm("New Iphone 14 cost 1500$. Do you want to buy it?");
+  if (!phone) {
+    alert("Ok, have a good day");
   } else {
-    alert("Yon haven't enough money");
+    let count = balance;
+    let bill = 0;
+    let ask;
+    for (let i = 0; count > minBalance; i++) {
+      count -= getBill();
+      bill += getBill();
+      ask = confirm(`Ok, your bill is ${bill} $. Do you want to continue?`);
+      if (!ask) break;
+    }
+    alert("Ok, see you later");
   }
+} else {
+  alert("You haven't enough money");
 }
-buyItem();
+
+function checkBalance(rate, item, accessories) {
+  return (item + accessories) * (rate / 100) + item + accessories;
+}
+
+function getBill() {
+  let result = item + rate;
+  return result;
+}
