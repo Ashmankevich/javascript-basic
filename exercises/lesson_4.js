@@ -367,38 +367,65 @@ Task 3 👨‍🏫
 */
 
 const balance = +prompt("Please, enter your balance", " ");
-
 const rate = 20;
-const item = 1000;
+const item = 1200;
 const accessories = 150;
 const minBalance = checkBalance(rate, item, accessories);
 
+function checkBalance(rate, item, accessories) {
+  return item + accessories + (item + accessories) * (rate / 100);
+}
+
 if (balance > minBalance) {
-  let phone;
-  phone = confirm("New Iphone 14 cost 1500$. Do you want to buy it?");
-  if (!phone) {
-    alert("Ok, have a good day");
-  } else {
-    let count = balance;
-    let bill = 0;
-    let ask;
-    for (let i = 0; count > minBalance; i++) {
-      count -= getBill();
-      bill += getBill();
-      ask = confirm(`Ok, your bill is ${bill} $. Do you want to continue?`);
-      if (!ask) break;
-    }
-    alert("Ok, see you later");
-  }
+  getShopping();
 } else {
   alert("You haven't enough money");
 }
 
-function checkBalance(rate, item, accessories) {
-  return (item + accessories) * (rate / 100) + item + accessories;
+function getShopping() {
+  let phone;
+  phone = confirm(`New Iphone 14 cost ${item} $. Do you want to buy it?`);
+  if (!phone) {
+    alert("Ok, have a good day");
+  } else {
+    getShoppingLoop();
+  }
 }
 
-function getBill() {
-  let result = item + rate;
+function getShoppingLoop() {
+  let count = balance;
+  let bill = 0;
+  let askContinueBuyPhone;
+  let askBuyAccessories;
+  for (let i = 0; count > minBalance; i++) {
+    count -= getPhone();
+    bill += getPhone();
+    askContinueBuyPhone = confirm(
+      `Ok, your bill is ${bill} $. Do you want to continue?`
+    );
+    if (!askContinueBuyPhone) break;
+    askBuyAccessories = confirm(
+      "Do you want to buy some accessories like new AirPods for 150$"
+    );
+    if (!askBuyAccessories) break;
+    count -= getAccessories();
+    bill += getAccessories();
+    askContinueBuyPhone = confirm(
+      `Ok, your bill is ${bill} $. Do you want to buy once again Iphone?`
+    );
+    if (!askContinueBuyPhone) break;
+    if (count < minBalance)
+      alert("Your balance is almost empty, please make a deposit");
+  }
+  alert("Ok, see you later");
+}
+
+function getPhone() {
+  let result = item + item * (rate / 100);
+  return result;
+}
+
+function getAccessories() {
+  let result = accessories + accessories * (rate / 100);
   return result;
 }
