@@ -71,3 +71,68 @@ function getInteger(min, max) {
   return Math.round(number);
 }
 console.log(getInteger(1, 5));
+
+//Task 5
+
+/*
+Напишите функцию ucFirst(str), возвращающую строку str с заглавным первым символом. Например:
+ucFirst("вася") == "Вася"
+*/
+
+function ucFirst(a) {
+  if (a !== "") return a;
+  return a[0].toUpperCase() + a.slice(1);
+}
+ucFirst("andrew");
+
+//Task 6
+
+/*
+Проверка на спам
+Напишите функцию checkSpam(str), возвращающую true, если str содержит 'viagra' или 'XXX', а иначе false.
+
+Функция должна быть нечувствительна к регистру:
+
+checkSpam('buy ViAgRA now') == true
+checkSpam('free xxxxx') == true
+checkSpam("innocent rabbit") == false
+*/
+
+function checkSpam(value) {
+  let newStr = value.toLowerCase();
+  let check = -1;
+  if (newStr.indexOf("viagra") !== check || newStr.indexOf("xxx") !== check) {
+    return true;
+  }
+  return false;
+}
+console.log(checkSpam("buy ViAgRA now"));
+console.log(checkSpam("free xxxxx"));
+console.log(checkSpam("innocent rabbit"));
+
+//Task 7
+
+/*
+Создайте функцию truncate(str, maxlength), которая проверяет длину строки str и,
+если она превосходит maxlength, заменяет конец str на "…", так, чтобы её длина стала равна maxlength.
+Результатом функции должна быть та же строка, если усечение не требуется,
+либо, если необходимо, усечённая строка.
+
+Например:
+truncate("Вот, что мне хотелось бы сказать на эту тему:", 20) = "Вот, что мне хотело…"
+truncate("Всем привет!", 20) = "Всем привет!"
+*/
+
+//Task 8
+
+/*
+Есть стоимость в виде строки "$120". То есть сначала идёт знак валюты, а затем – число.
+Создайте функцию extractCurrencyValue(str), которая будет из такой строки выделять числовое значение
+и возвращать его.
+Например:
+
+alert( extractCurrencyValue('$120') === 120 ); // true
+*/
+
+let extractCurrencyValue = (value) => +value.slice(1);
+extractCurrencyValue("$120");
