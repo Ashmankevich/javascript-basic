@@ -123,6 +123,12 @@ truncate("Вот, что мне хотелось бы сказать на эту
 truncate("Всем привет!", 20) = "Всем привет!"
 */
 
+function truncate(str, maxlength) {
+  if (str.length <= maxlength) return str;
+  else return str.slice(0, 19) + "...";
+}
+truncate("Вот, что мне хотелось бы сказать на эту тему:", 20);
+
 //Task 8
 
 /*
@@ -136,3 +142,28 @@ alert( extractCurrencyValue('$120') === 120 ); // true
 
 let extractCurrencyValue = (value) => +value.slice(1);
 extractCurrencyValue("$120");
+
+//Task 9
+
+/*
+Создайте массив styles с элементами «Джаз» и «Блюз».
+Добавьте «Рок-н-ролл» в конец.
+Замените значение в середине на «Классика». 
+Ваш код для поиска значения в середине должен работать для массивов с любой длиной.
+Удалите первый элемент массива и покажите его.
+Вставьте Рэп и Регги в начало массива.
+Массив по ходу выполнения операций:
+
+Джаз, Блюз
+Джаз, Блюз, Рок-н-ролл
+Джаз, Классика, Рок-н-ролл
+Классика, Рок-н-ролл
+Рэп, Регги, Классика, Рок-н-ролл
+*/
+
+let styles = ["Jazz", "Blues"];
+styles.push("Rock & Roll");
+styles[`${Math.floor(styles.length - 1 / 2)}`] = "Classic";
+styles.shift();
+styles.unshift("Rap", "Reggie");
+console.log(styles);
