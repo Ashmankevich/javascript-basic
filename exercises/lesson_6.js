@@ -167,3 +167,40 @@ styles[`${Math.floor(styles.length - 1 / 2)}`] = "Classic";
 styles.shift();
 styles.unshift("Rap", "Reggie");
 console.log(styles);
+
+//Task 10
+
+/*
+Сумма введённых чисел
+Напишите функцию sumInput(), которая:
+
+Просит пользователя ввести значения, используя prompt и сохраняет их в массив.
+Заканчивает запрашивать значения, когда пользователь введёт не числовое значение,
+пустую строку или нажмёт «Отмена».
+Подсчитывает и возвращает сумму элементов массива.
+P.S. Ноль 0 – считается числом, не останавливайте ввод значений при вводе «0».
+*/
+
+function sumInput() {
+  let arr = [];
+  let value = prompt("Please, enter the sum value", "");
+
+  for (
+    let i = 0;
+    isNaN(value) === false && typeof value !== " " && typeof value !== null;
+    i++
+  ) {
+    +value;
+    arr.push(value);
+    value = prompt("It's ok,you should enter some value more", "");
+  }
+  console.log(arr);
+  let sum = 0;
+  console.log(sum);
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+
+sumInput();
