@@ -183,24 +183,21 @@ P.S. Ноль 0 – считается числом, не останавлива
 
 function sumInput() {
   let arr = [];
-  let value = prompt("Please, enter the sum value", "");
-
-  for (
-    let i = 0;
-    isNaN(value) === false && typeof value !== " " && typeof value !== null;
-    i++
-  ) {
-    +value;
-    arr.push(value);
-    value = prompt("It's ok,you should enter some value more", "");
+  let value;
+  if ((value = prompt("Please, enter the sum value", ""))) {
+    for (
+      let i = 0;
+      isNaN(value) === false && value !== null && value !== "";
+      i++
+    ) {
+      arr.push(value);
+      value = prompt("It's ok, you should enter some value more", "");
+    }
   }
-  console.log(arr);
   let sum = 0;
-  console.log(sum);
   for (let i = 0; i < arr.length; i++) {
-    sum += arr[i];
+    sum += +arr[i];
   }
   return sum;
 }
-
 sumInput();
