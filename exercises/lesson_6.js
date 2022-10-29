@@ -220,11 +220,83 @@ P.S. Подсказка: используйте split, чтобы разбить
 потом переделайте всё как нужно и методом join соедините обратно.
 */
 
-let str = "background-color";
-let arr = str.split("");
-let element = "-";
-let indexRemove = arr.indexOf(element);
-arr.splice(indexRemove, 1);
-let newArr1 = arr[indexRemove].toUpperCase();
-console.log(newArr1);
-let newArr = arr.join("");
+function camelize(str) {
+  let arr = str.split("");
+
+  for (let i = 0; arr.indexOf("-") !== -1; i++) {
+    let index = arr.indexOf("-");
+    arr.splice(index, 1);
+    let capitalLetter = arr[index].toUpperCase();
+    arr.splice(index, 1, capitalLetter);
+  }
+
+  return arr.join("");
+}
+camelize("-webkit-transition");
+
+//Task 12
+
+/*
+Фильтрация по диапазону
+важность: 4
+Напишите функцию filterRange(arr, a, b), которая принимает массив arr,
+ищет элементы со значениями больше или равными a и меньше или равными b
+и возвращает результат в виде массива.
+
+Функция должна возвращать новый массив и не изменять исходный.
+
+Например:
+
+let arr = [5, 3, 8, 1];
+
+let filtered = filterRange(arr, 1, 4);
+
+alert( filtered ); // 3,1 (совпадающие значения)
+
+alert( arr ); // 5,3,8,1 (без изменений)
+*/
+let arr = [5, 3, 8, 1];
+
+function filterRange(arr, a, b) {
+  //return arr.filter((item) => item >= a && item <= b);
+  return arr.filter(function (el) {
+    return el >= a && el <= b;
+  });
+}
+
+let filtered = filterRange(arr, 1, 4);
+
+console.log(filtered);
+console.log(arr);
+
+//Task 13
+
+/*
+Фильтрация по диапазону "на месте"
+важность: 4
+Напишите функцию filterRangeInPlace(arr, a, b), которая принимает массив arr
+и удаляет из него все значения кроме тех, которые находятся между a и b.
+То есть, проверка имеет вид a ≤ arr[i] ≤ b.
+
+Функция должна изменять принимаемый массив и ничего не возвращать.
+
+Например:
+
+let arr = [5, 3, 8, 1];
+
+filterRangeInPlace(arr, 1, 4); // удалены числа вне диапазона 1..4
+
+alert( arr ); // [3, 1]
+*/
+
+let array = [5, 3, 8, 1];
+
+function filterRangeInPlace(array, a, b) {
+  array.filter((item, index, array) => {
+    array.pop();
+    return item > a && item > b;
+  });
+}
+filterRangeInPlace(array, 1, 4);
+
+console.log(array);
