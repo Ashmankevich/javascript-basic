@@ -292,11 +292,58 @@ alert( arr ); // [3, 1]
 let array = [5, 3, 8, 1];
 
 function filterRangeInPlace(array, a, b) {
-  array.filter((item, index, array) => {
-    array.pop();
-    return item > a && item > b;
-  });
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > a && array[i] > b) {
+      array.splice([i], 1);
+    }
+  }
 }
 filterRangeInPlace(array, 1, 4);
-
 console.log(array);
+
+//Task 14
+
+/*
+Сортировать в порядке по убыванию
+важность: 4
+let arr = [5, 2, 1, -10, 8];
+
+ваш код для сортировки по убыванию
+
+alert( arr ); // 8, 5, 2, 1, -10
+*/
+
+let arrTask14 = [5, 2, 1, -10, 8];
+
+arrTask14.sort(function (a, b) {
+  return b - a;
+});
+
+console.log(arrTask14);
+
+//Task 15
+
+/*
+Скопировать и отсортировать массив
+важность: 5
+У нас есть массив строк arr. Нужно получить отсортированную копию, но оставить arr неизменённым.
+
+Создайте функцию copySorted(arr), которая будет возвращать такую копию.
+
+let arr = ["HTML", "JavaScript", "CSS"];
+
+let sorted = copySorted(arr);
+
+alert( sorted ); // CSS, HTML, JavaScript
+alert( arr ); // HTML, JavaScript, CSS (без изменений)
+*/
+
+let arrTask15 = ["HTML", "JavaScript", "CSS"];
+
+function copySorted(arr) {
+  return arr.slice().sort();
+}
+let sorted = copySorted(arrTask15);
+
+console.log(arrTask15);
+console.log(sorted);
