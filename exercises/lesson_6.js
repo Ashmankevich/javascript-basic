@@ -347,3 +347,189 @@ let sorted = copySorted(arrTask15);
 
 console.log(arrTask15);
 console.log(sorted);
+
+//Task 16
+
+/*
+Трансформировать в массив имён
+важность: 5
+У вас есть массив объектов user, и в каждом из них есть user.name.
+Напишите код, который преобразует их в массив имён.
+
+Например:
+
+let vasya = { name: "Вася", age: 25 };
+let petya = { name: "Петя", age: 30 };
+let masha = { name: "Маша", age: 28 };
+
+let users = [ vasya, petya, masha ];
+
+let names = ... ваш код
+
+alert( names ); // Вася, Петя, Маша
+*/
+
+let vasya = { name: "Вася", age: 25 };
+let petya = { name: "Петя", age: 30 };
+let masha = { name: "Маша", age: 28 };
+
+let users = [vasya, petya, masha];
+
+let names = users.map((item) => item.name);
+let names2 = users.map(function (item) {
+  return item.name;
+});
+console.log(names);
+console.log(names2);
+
+//Task 17
+
+/*
+Трансформировать в объекты
+важность: 5
+У вас есть массив объектов user, и у каждого из объектов есть name, surname и id.
+
+Напишите код, который создаст ещё один массив объектов с параметрами id и fullName,
+где fullName – состоит из name и surname.
+
+Например:
+
+let vasya = { name: "Вася", surname: "Пупкин", id: 1 };
+let petya = { name: "Петя", surname: "Иванов", id: 2 };
+let masha = { name: "Маша", surname: "Петрова", id: 3 };
+
+let users = [ vasya, petya, masha ];
+
+let usersMapped =  ... ваш код ... 
+
+usersMapped = [
+  { fullName: "Вася Пупкин", id: 1 },
+  { fullName: "Петя Иванов", id: 2 },
+  { fullName: "Маша Петрова", id: 3 }
+]
+
+alert( usersMapped[0].id ) // 1
+alert( usersMapped[0].fullName ) // Вася Пупкин
+*/
+
+let andrew = { name: "Андрей", surname: "Пупкин", id: 1 };
+let roma = { name: "Роман", surname: "Иванов", id: 2 };
+let paolo = { name: "Павел", surname: "Петров", id: 3 };
+
+let users17 = [andrew, roma, paolo];
+
+let usersMapped = users17.map(function (item) {
+  return {
+    fullName: item.name + " " + item.surname,
+    id: item.id,
+  };
+});
+
+console.log(usersMapped[0].id);
+console.log(usersMapped[0].fullName);
+
+//Task 18
+
+/*
+Отсортировать пользователей по возрасту
+важность: 5
+Напишите функцию sortByAge(users),
+которая принимает массив объектов со свойством age и сортирует их по нему.
+
+Например:
+
+let vasya = { name: "Вася", age: 25 };
+let petya = { name: "Петя", age: 30 };
+let masha = { name: "Маша", age: 28 };
+
+let arr = [ vasya, petya, masha ];
+
+sortByAge(arr);
+
+теперь: [vasya, masha, petya]
+alert(arr[0].name); // Вася
+alert(arr[1].name); // Маша
+alert(arr[2].name); // Петя
+*/
+
+let niko = { name: "Вася", age: 25 };
+let kirill = { name: "Петя", age: 30 };
+let alex = { name: "Маша", age: 28 };
+
+let arr18 = [niko, kirill, alex];
+
+function sortByAge(arr18) {
+  return arr18.sort((a, b) => a.age - b.age);
+}
+sortByAge(arr18);
+
+//Task 19
+
+/*
+Получить средний возраст
+важность: 4
+Напишите функцию getAverageAge(users),
+которая принимает массив объектов со свойством age и возвращает средний возраст.
+
+Формула вычисления среднего арифметического значения: (age1 + age2 + ... + ageN) / N.
+
+Например:
+
+let vasya = { name: "Вася", age: 25 };
+let petya = { name: "Петя", age: 30 };
+let masha = { name: "Маша", age: 29 };
+
+let arr = [ vasya, petya, masha ];
+
+alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
+*/
+
+let sasha = { name: "Sasha", age: 30 };
+let julia = { name: "Julia", age: 23 };
+let katya = { name: "Katya", age: 25 };
+
+let arr19 = [sasha, julia, katya];
+
+function getAverageAge(arr) {
+  let allAge = arr.reduce((accum, current) => accum + current.age, 0);
+  let countN = arr19.length;
+  return allAge / countN;
+}
+getAverageAge(arr19);
+
+//Task 20
+
+/*
+Создайте объект с ключами из массива
+важность: 4
+Допустим, мы получили массив пользователей в виде {id:..., name:..., age:... }.
+
+Создайте функцию groupById(arr),
+которая создаст из него объект с id в качестве ключа и элементами массива в качестве значений.
+
+Например:
+
+let users = [
+  {id: 'john', name: "John Smith", age: 20},
+  {id: 'ann', name: "Ann Smith", age: 24},
+  {id: 'pete', name: "Pete Peterson", age: 31},
+];
+
+let usersById = groupById(users);
+*/
+
+function groupById(array) {
+  return array.reduce((obj, value) => {
+    obj[value.id] = value;
+    return obj;
+  }, {});
+}
+
+let users20 = [
+  { id: "john", name: "John Smith", age: 20 },
+  { id: "ann", name: "Ann Smith", age: 24 },
+  { id: "pete", name: "Pete Peterson", age: 31 },
+];
+
+let usersById = groupById(users20);
+console.log(usersById);
