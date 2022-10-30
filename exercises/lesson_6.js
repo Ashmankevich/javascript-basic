@@ -519,7 +519,7 @@ let usersById = groupById(users);
 */
 
 function groupById(array) {
-  return array.reduce((obj, value) => {
+  return array.reduce(function (obj, value) {
     obj[value.id] = value;
     return obj;
   }, {});
@@ -533,3 +533,40 @@ let users20 = [
 
 let usersById = groupById(users20);
 console.log(usersById);
+
+//Task 21
+
+/*
+Оставить уникальные элементы массива
+важность: 4
+Пусть arr – массив строк.
+
+Напишите функцию unique(arr), которая возвращает массив, содержащий только уникальные элементы arr.
+*/
+
+let strings = [
+  "кришна",
+  "кришна",
+  "харе",
+  "харе",
+  "харе",
+  "харе",
+  "кришна",
+  "кришна",
+  ":-O",
+];
+
+function unique(arr) {
+  let sortArr = strings.sort(function (a, b) {
+    return b.localeCompare(a);
+  });
+  for (let i = 0; i <= sortArr.length; i++) {
+    for (let j = 0; sortArr[j].localeCompare(sortArr[j + 1]) == 0; j++) {
+      sortArr.splice([j], 1);
+    }
+  }
+
+  return arr;
+}
+
+console.log(unique(strings)); // кришна, харе, :-O
