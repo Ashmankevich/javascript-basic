@@ -580,14 +580,16 @@ console.log(unique(strings)); // кришна, харе, :-O
 
 Задание состоит из двух частей.
 
-Во-первых, реализуйте метод calculate(str), который принимает строку типа "1 + 2" в формате «ЧИСЛО оператор ЧИСЛО» (разделено пробелами) и возвращает результат. Метод должен понимать плюс + и минус -.
+Во-первых, реализуйте метод calculate(str), который принимает строку типа "1 + 2" в формате
+«ЧИСЛО оператор ЧИСЛО» (разделено пробелами) и возвращает результат. Метод должен понимать плюс + и минус -.
 
 Пример использования:
 
 let calc = new Calculator;
 
 alert( calc.calculate("3 + 7") ); // 10
-Затем добавьте метод addMethod(name, func), который добавляет в калькулятор новые операции. Он принимает оператор name и функцию с двумя аргументами func(a,b), которая описывает его.
+Затем добавьте метод addMethod(name, func), который добавляет в калькулятор новые операции.
+Он принимает оператор name и функцию с двумя аргументами func(a,b), которая описывает его.
 
 Например, давайте добавим умножение *, деление / и возведение в степень **:
 
@@ -614,8 +616,21 @@ function Calculator() {
     let a = +split[0];
     let b = +split[2];
     let operator = split[1];
+
+    if (!this.methods[operator] || isNaN(a) || isNaN(b)) {
+      return NaN;
+    }
+
     return this.methods[operator](a, b);
+  };
+
+  this.addMethod = function (name, func) {
+    this.methods[name] = func;
   };
 }
 let calc = new Calculator();
 console.log(calc.calculate("3 + 7"));
+
+let powerCalc = new Calculator();
+powerCalc.addMethod("*", (a, b) => a * b);
+console.log(powerCalc.calculate("2 * 8"));
