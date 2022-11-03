@@ -634,3 +634,87 @@ console.log(calc.calculate("3 + 7"));
 let powerCalc = new Calculator();
 powerCalc.addMethod("*", (a, b) => a * b);
 console.log(powerCalc.calculate("2 * 8"));
+
+//Task 23
+
+/*
+Фильтрация уникальных элементов массива
+важность: 5
+Допустим, у нас есть массив arr.
+
+Создайте функцию unique(arr), которая вернёт массив уникальных, не повторяющихся значений массива arr.
+
+*/
+
+function unique(arr) {
+  let set = new Set(arr);
+  let result = [];
+  for (let value of set) {
+    set.push(value);
+  }
+  return result;
+}
+
+let values = [
+  "Hare",
+  "Krishna",
+  "Hare",
+  "Krishna",
+  "Krishna",
+  "Krishna",
+  "Hare",
+  "Hare",
+  ":-O",
+];
+
+console.log(unique(values));
+
+//Task 24
+
+/*
+Отфильтруйте анаграммы
+важность: 4
+Анаграммы – это слова, у которых те же буквы в том же количестве, но они располагаются в другом порядке.
+
+Например:
+
+nap - pan
+ear - are - era
+cheaters - hectares - teachers
+Напишите функцию aclean(arr), которая возвращает массив слов, очищенный от анаграмм.
+
+Например:
+
+let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+alert( aclean(arr) ); // "nap,teachers,ear" или "PAN,cheaters,era"
+Из каждой группы анаграмм должно остаться только одно слово, не важно какое.
+*/
+
+let arr24 = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+function aclean(arr) {
+  let map = new Map();
+  for (let value of arr) {
+    let rebuild = value.toLowerCase().split("").sort().join("");
+    map.set(rebuild, value);
+    console.log(map);
+  }
+  return Array.from(map.values());
+}
+
+console.log(aclean(arr24)); // "nap,teachers,ear" или "PAN,cheaters,era"
+
+//Task 25
+
+/*
+Мы хотели бы получить массив ключей map.keys() в переменную
+и далее работать с ними, например, применить метод .push.
+*/
+
+let map = new Map();
+map.set("name", "John");
+let keys = Array.from(map.keys());
+keys.push("more");
+
+console.log(keys);
