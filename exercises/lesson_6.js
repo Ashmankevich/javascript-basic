@@ -784,3 +784,71 @@ let user = {
 
 let count = (obj) => Object.keys(obj).length;
 count(user);
+
+//Task 28
+
+/*
+Деструктурирующее присваивание
+важность: 5
+У нас есть объект:
+
+let user = {
+  name: "John",
+  years: 30
+};
+Напишите деструктурирующее присваивание, которое:
+
+свойство name присвоит в переменную name.
+свойство years присвоит в переменную age.
+свойство isAdmin присвоит в переменную isAdmin (false, если нет такого свойства)
+*/
+
+let user28 = {
+  userName: "John",
+  years: 30,
+};
+
+let { userName, years: age, isAdmin = false } = user28;
+
+console.log(userName);
+console.log(age);
+console.log(isAdmin);
+
+//Task 29
+
+/*
+Максимальная зарплата
+важность: 5
+У нас есть объект salaries с зарплатами:
+
+let salaries = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 250
+};
+Создайте функцию topSalary(salaries), которая возвращает имя самого высокооплачиваемого сотрудника.
+
+Если объект salaries пустой, то нужно вернуть null.
+Если несколько высокооплачиваемых сотрудников, можно вернуть любого из них.
+P.S. Используйте Object.entries и деструктурирование, чтобы перебрать пары ключ/значение.
+*/
+
+let salaries29 = {
+  Andrew: 1000,
+  John: 100,
+  Pete: 300,
+  Mary: 250,
+};
+
+function topSalary(obj) {
+  let topGuy = null;
+  let maxSalary = 0;
+  for (let [name, salary] of Object.entries(obj)) {
+    if (maxSalary < salary) {
+      maxSalary = salary;
+      topGuy = name;
+    }
+  }
+  return topGuy;
+}
+topSalary(salaries29);
