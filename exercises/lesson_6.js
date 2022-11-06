@@ -955,3 +955,44 @@ function getDateAgo(date, days) {
   return new Date(dateMS - daysMS).getDate();
 }
 getDateAgo(date33, 2);
+
+//Task 34
+
+/*
+Сколько сегодня прошло секунд?
+важность: 5
+Напишите функцию getSecondsToday(), возвращающую количество секунд с начала сегодняшнего дня.
+
+Например, если сейчас 10:00, и не было перехода на зимнее/летнее время, то:
+
+getSecondsToday() == 36000 // (3600 * 10)
+Функция должна работать в любой день, т.е. в ней не должно быть конкретного значения сегодняшней даты.
+*/
+
+function getSecondsToday() {
+  let date = new Date();
+  return date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds();
+}
+getSecondsToday();
+
+//Task 35
+
+/*
+Сколько секунд осталось до завтра?
+важность: 5
+Создайте функцию getSecondsToTomorrow(), возвращающую количество секунд до завтрашней даты.
+
+Например, если сейчас 23:00, то:
+
+getSecondsToTomorrow() == 3600
+P.S. Функция должна работать в любой день, т.е. в ней не должно быть конкретного значения сегодняшней даты.
+*/
+
+function getSecondsToTomorrow() {
+  let date = new Date();
+  return (
+    86400 -
+    (date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds())
+  );
+}
+getSecondsToTomorrow();
