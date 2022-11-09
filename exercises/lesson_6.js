@@ -1248,3 +1248,104 @@ for (let i = 0; i < binary.length - 1; i++) {
 let arr46 = binary.join("");
 console.log(arr46);
 console.log(typeof arr46);
+
+//ADVANCED level
+
+//Task 1 (47) 👨‍🏫
+/*
+Реализуйте функцию которая будет проверять, является ли слово палиндромом.
+*/
+
+function checkPalindrom(word) {
+  let wordReverse = word.toLowerCase().split("").reverse();
+  let originalWord = word.toLowerCase().split("");
+  for (let i = 0; i <= word.length; i++) {
+    if (wordReverse[i] == originalWord[i]) {
+      return `it's a palindrom`;
+    }
+    return `it isn't a palindrom`;
+  }
+}
+checkPalindrom("Anna");
+
+//Task 2 (48) 👨‍🏫
+/*
+    const matrix = [
+        [12, 98, 78, 65, 23],
+        [54, 76, 98, 43, 65],
+        [13, 324, 65, 312],
+        [9092, 22, 45, 90000],
+    ]
+Выведите в консоль среднее значение чисел в многомерном массиве.
+*/
+
+const matrix = [
+  [12, 98, 78, 65, 23],
+  [54, 76, 98, 43, 65],
+  [13, 324, 65, 312],
+  [9092, 22, 45, 90000],
+];
+
+const arr48 = matrix.flat();
+const result = arr48.reduce((accum, current) => accum + current) / arr48.length;
+console.log(result);
+
+//Task 3 (49) 👨‍🏫
+
+/*
+Дан массив:
+
+   const mixedNumbers = [-14, 24, -89, 43, 0 , -1, 412, 4]
+Создайте два массива, в один поместите все положительные числа включая 0, в другой все отрицательные.
+Оба массива затем выведите в консоль.
+*/
+
+const mixedNumbers = [-14, 24, -89, 43, 0, -1, 412, 4];
+
+let pos = [];
+let neg = [];
+
+for (let i = 0; i < mixedNumbers.length; i++) {
+  if (mixedNumbers[i] < 0) {
+    neg.push(mixedNumbers[i]);
+  } else pos.push(mixedNumbers[i]);
+}
+
+console.log(pos);
+console.log(neg);
+
+//Task 4 (50) 👨‍🏫
+/*
+Создать массив длинной не менее 5, из динамически созданных случайных чисел.
+Далее написать алгоритм, который берет все числа из исходного массива, 
+возводит их в куб и записывает в новый массив. В конце вывести оба массива в консоль.*/
+
+const arrORG = [];
+const multiplyThree = [];
+
+for (let i = 0; i < 6; i++) {
+  const num = Math.floor(Math.random() * 10);
+  arrORG.push(num);
+}
+
+for (let key of arrORG) {
+  multiplyThree.push(key ** 3);
+}
+
+console.log(arrORG);
+console.log(multiplyThree);
+
+//Task 5 (51)
+/*
+Task 4 💻
+Написать функцию getSumNumbers, которая будет принимать число
+и вычислять сумму цифр из которых состоит число.
+
+Для 2021 это будет 5.
+*/
+
+function getSumNumbers(number) {
+  let word = String(number).split("");
+  return word.reduce((accum, current) => +accum + +current);
+}
+getSumNumbers(2022);
