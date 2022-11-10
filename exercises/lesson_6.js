@@ -1349,3 +1349,35 @@ function getSumNumbers(number) {
   return word.reduce((accum, current) => +accum + +current);
 }
 getSumNumbers(2022);
+
+//Task 6 (52)
+
+/*
+Сравнить два объекта
+*/
+
+let student1 = {
+  name: "Polina",
+  age: 27,
+};
+
+let student2 = {
+  name: "Polina",
+  age: 27,
+};
+
+function compareObj(obj1, obj2) {
+  let entriesStudent1 = Object.entries(obj1).flat();
+  let entriesStudent2 = Object.entries(obj2).flat();
+  if (entriesStudent1.length == entriesStudent2.length) {
+    for (let i = 0; i <= entriesStudent1.length; i++) {
+      if (entriesStudent1[i] !== entriesStudent2[i]) {
+        return `it's a diffrent obj`;
+      }
+    }
+    return `it's the same obj`;
+  } else {
+    return `it's a diffrent obj`;
+  }
+}
+compareObj(student1, student2);
