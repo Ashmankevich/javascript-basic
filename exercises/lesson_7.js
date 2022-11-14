@@ -55,6 +55,60 @@ let getUsers = () =>
   users.map((item, index) => `member ${index + 1} : ${item}`);
 getUsers();
 
+//Task 3 🖥
+/*С помощью метода filter создайте новый массив в котором не будет отрицательных чисел.
+
+    const numbers = [7, -4, 32, -90, 54, 32, -21]
+Реализуйте решение двумя способами, используя function declaration & arrow function.
+*/
+
+const numbers = [7, -4, 32, -90, 54, 32, -21];
+
+function getPos() {
+  return numbers.filter((item) => item > 0);
+}
+getPos();
+
+let getPos2 = () => numbers.filter((item) => item > 0);
+getPos2();
+
+//Task 4 🖥
+/*
+Используя метод reduce получите сумму всех чисел массива.
+
+    const fibonacci = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987]
+Реализуйте решение двумя способами, используя function declaration & arrow function.
+*/
+
+const fibon = [
+  0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987,
+];
+
+function getSum() {
+  return fibon.reduce((accum, value) => accum + value);
+}
+getSum();
+
+let getResult = () => fibon.reduce((accum, value) => accum + value);
+getResult();
+
+//Task 5 🖥
+/*
+Используя метод find найдите в массиве первое четное число.
+
+    const numbers = [5, 9, 13, 24, 54, 10, 13, 99, 1, 5]
+Реализуйте решение двумя способами, используя function declaration & arrow function.
+*/
+const numbersTask5 = [5, 9, 13, 24, 54, 10, 13, 99, 1, 5];
+
+function findNum() {
+  return numbersTask5.find((item) => (item % 2 == 0 ? item : null));
+}
+findNum();
+
+let findNum2 = () => numbersTask5.find((item) => (item % 2 == 0 ? item : null));
+findNum2();
+
 //Tasks from 'Learn JS'
 /*
 Вычислить сумму чисел до данного
@@ -233,3 +287,29 @@ function printList(list) {
   }
 }
 printList(list);
+
+/*
+Вывод односвязного списка в обратном порядке
+важность: 5
+Выведите односвязный список из предыдущего задания Вывод односвязного списка в обратном порядке.
+
+Сделайте два решения: с использованием цикла и через рекурсию.
+*/
+
+function printReverse(list) {
+  let arr = [];
+  let tmp = list;
+  let i = 0;
+
+  while (tmp) {
+    arr.push(tmp.value);
+    tmp = tmp.next;
+  }
+
+  let arrMod = arr.reverse();
+  while (i < arrMod.length) {
+    alert(arrMod[i]);
+    i++;
+  }
+}
+printReverse(list);
