@@ -190,6 +190,55 @@ function hukTrollo(str) {
 }
 hukTrollo("This website is for losers LOL!");
 
+//Task 3 👨‍🏫 Нет истории, нет теории
+/*В приведенных ниже примерах показано, как написать функцию:
+    accum("abcd") -> "A-Bb-Ccc-Dddd"
+    accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+    accum("cwAt") -> "C-Ww-Aaa-Tttt"
+Параметр - это строка, которая включает только буквы от a..z и A..Z.
+*/
+
+function accum(item) {
+  let dash = "-";
+  let arr = [];
+  let arrOfStr = item.split("");
+  for (let i = 0; i < arrOfStr.length; i++) {
+    arr.push(dash);
+    arr.push(arrOfStr[i].toUpperCase());
+    for (let j = 0; j < i; j++) {
+      arr.push(arrOfStr[i]);
+    }
+  }
+  return arr.slice(1).join("");
+}
+accum("RqaEzty");
+
+//Task 4 👨‍🏫 Самый высокий и самый низкий
+/*В этом небольшом задании вам дается строка чисел, разделенных пробелами,
+ и вы должны возвращать наибольшее и наименьшее число.
+    highAndLow("1 2 3 4 5"); // return "5 1"
+    highAndLow("1 2 -3 4 5"); // return "5 -3"
+    highAndLow("1 9 3 4 -5"); // return "9 -5"
+Строка вывода должна состоять из двух чисел, разделенных одним пробелом,
+ при этом наибольшее число должно быть первым.
+ */
+
+function highAndLow(item) {
+  let negArr = [];
+  let allElArr = item.split("");
+
+  while (allElArr.includes("-")) {
+    let indexMinus = allElArr.indexOf("-");
+    console.log(indexMinus);
+    let negEl = "-" + item[indexMinus + 1];
+    console.log(negEl);
+    negArr.push(negEl);
+    allElArr.splice(indexMinus, 2);
+  }
+  return negArr;
+}
+highAndLow("1 2 -3 -4 -5");
+
 //Task 5 👨‍🏫 Изограммы
 /*
 Изограмма - это слово, в котором нет повторяющихся букв, последовательных или непоследовательных.
