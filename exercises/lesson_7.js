@@ -314,14 +314,15 @@ getMathOfASCII("ABCDEF");
 
 function findDuplicate(str) {
   let arr = [];
-  for (let key of str) {
-    if (str.indexOf(key) == str.lastIndexOf(key)) {
+  let strLow = str.toLowerCase();
+  for (let key of strLow) {
+    if (strLow.indexOf(key) == strLow.lastIndexOf(key)) {
       arr.push("(");
     } else arr.push(")");
   }
   return arr.join("");
 }
-findDuplicate("din");
+findDuplicate("Success");
 
 //Tasks from 'Learn JS'
 /*
