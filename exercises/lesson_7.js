@@ -229,15 +229,18 @@ function highAndLow(item) {
 
   while (allElArr.includes("-")) {
     let indexMinus = allElArr.indexOf("-");
-    console.log(indexMinus);
-    let negEl = "-" + item[indexMinus + 1];
-    console.log(negEl);
+    let negEl = "-" + allElArr[indexMinus + 1];
     negArr.push(negEl);
     allElArr.splice(indexMinus, 2);
   }
-  return negArr;
+  let arrClean = negArr
+    .concat(allElArr)
+    .filter((item) => item !== " ")
+    .sort((a, b) => b - a);
+
+  return `${arrClean[0]} ${arrClean[arrClean.length - 1]}`;
 }
-highAndLow("1 2 -3 -4 -5");
+highAndLow("1 9 3 4 -5");
 
 //Task 5 👨‍🏫 Изограммы
 /*
@@ -263,6 +266,51 @@ function isIsogram(item) {
   return str !== strFinal ? `it's not Isogram` : `It's a isogram`;
 }
 isIsogram("aba");
+
+//Task 6 👨‍🏫 Считаем коды символов
+/*Учитывая строку, превратите каждый символ в его код символа ASCII и соедините их вместе,
+чтобы создать число. Поместите результат в переменную total1
+
+Затем замените все числа 7 на число 1 и назовите это число total2
+
+После верните разницу между суммой цифр total1 и total2
+
+'ABC' --> 'A' = 65, 'B' = 66, 'C' = 67 --> 656667
+*/
+
+function getMathOfASCII(item) {
+  let string = "";
+
+  for (let key of item) {
+    let strOfNum = String(key.charCodeAt());
+    string += strOfNum;
+  }
+
+  let total1 = +string;
+
+  let arrOfTotal1 = Array.from(String(total1));
+  arrOfTotal1.map((item, index) =>
+    item == "7" ? arrOfTotal1.splice(index, 1, "1") : undefined
+  );
+
+  let total2 = +arrOfTotal1.join("");
+
+  return total1 - total2;
+}
+getMathOfASCII("ABCDEF");
+
+//Task 7 👨‍🏫 Дубликаты
+/*
+Цель этого упражнения - преобразовать строку в новую строку,
+где каждый символ в новой строке равен (,
+если этот символ появляется только один раз в исходной строке, или ),
+если этот символ встречается более одного раза в исходной строке.
+Игнорируйте использование заглавных букв при определении дубликата символа.
+    "din" => "((("
+    "recede" => "()()()"
+    "Success" => ")())())"
+    "(( @" => "))(("
+*/
 
 //Tasks from 'Learn JS'
 /*
