@@ -312,6 +312,17 @@ getMathOfASCII("ABCDEF");
     "(( @" => "))(("
 */
 
+function findDuplicate(str) {
+  let arr = [];
+  for (let key of str) {
+    if (str.indexOf(key) == str.lastIndexOf(key)) {
+      arr.push("(");
+    } else arr.push(")");
+  }
+  return arr.join("");
+}
+findDuplicate("din");
+
 //Tasks from 'Learn JS'
 /*
 Вычислить сумму чисел до данного
