@@ -560,7 +560,45 @@ let counter = makeCounter();
 console.log(counter());
 console.log(counter());
 
-counter.set(10)
-counter.decrease()
-counter.decrease()
-console.log(counter())
+counter.set(10);
+counter.decrease();
+counter.decrease();
+console.log(counter());
+
+//Вывод каждую секунду
+/*
+важность: 5
+Напишите функцию printNumbers(from, to),
+которая выводит число каждую секунду, начиная от from и заканчивая to.
+
+Сделайте два варианта решения.
+
+Используя setInterval.
+Используя рекурсивный setTimeout.
+*/
+
+function printNumbers(from, to) {
+  let current = from;
+
+  let timerId = setInterval(function () {
+    console.log(current);
+    if (current == to) {
+      clearInterval(timerId);
+    }
+    current++;
+  }, 1000);
+}
+printNumbers(2, 22);
+
+function printNumbers(from, to) {
+  let current = from;
+
+  let timerId = setTimeout(function time() {
+    console.log(current);
+    if (current < to) {
+      timerId = setTimeout(time, 1000);
+    }
+    current++;
+  }, 1000);
+}
+printNumbers(2, 22);
