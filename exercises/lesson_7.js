@@ -602,3 +602,33 @@ function printNumbers(from, to) {
   }, 1000);
 }
 printNumbers(2, 22);
+
+//Декоратор-шпион
+/*важность: 5
+Создайте декоратор spy(func), который должен возвращать обёртку,
+которая сохраняет все вызовы функции в своём свойстве calls.
+
+Каждый вызов должен сохраняться как массив аргументов.
+
+*/
+function work(a, b) {
+  console.log(a + b);
+}
+
+function spy(work) {
+  function wrapper(...args) {
+    wrapper.calls.push(args);
+    return work.apply(this, args);
+  }
+  wrapper.calls = [];
+  return wrapper;
+}
+
+work = spy(work);
+
+work(1, 2);
+work(4, 5);
+
+for (let args of work.calls) {
+  console.log("call:" + args.join());
+}
