@@ -153,6 +153,38 @@ alert(dictionary); // "apple,__proto__"
 важность: 5
 Класс Clock написан в функциональном стиле. Перепишите его, используя современный синтаксис классов.
 */
+
+function Time({ template }) {
+  this.template = template;
+}
+
+Time.prototype.render = function () {
+  let date = new Date();
+  let hours = date.getHours();
+  let mins = date.getMinutes();
+  let sec = date.getSeconds();
+
+  let output = this.template
+    .replace("h", hours)
+    .replace("m", mins)
+    .replace("s", sec);
+
+  console.log(output);
+};
+
+Time.prototype.start = function () {
+  this.render();
+  this.timer = setInterval(() => this.render(), 1000);
+};
+
+Time.prototype.stop = function () {
+  clearInterval(this.timer);
+};
+
+let time = new Time({ template: "h:m:s" });
+
+time.start();
+
 class Clock {
   constructor({ wrapped }) {
     this.wrapped = wrapped;
@@ -184,6 +216,21 @@ class Clock {
 let clock = new Clock({ wrapped: "h:m:s" });
 
 clock.start();
+
+class ExtendedClock extends Clock {
+  constructor(additional) {
+    super(additional);
+    let { precision = 1000 } = additional;
+    this.precision = precision;
+  }
+  start() {
+    this.render();
+    this.timer = setInterval(() => this.render(), this.precision);
+  }
+}
+
+let clock2 = new ExtendedClock({ wrapped: "h:m:s", precision: 3000 });
+clock2.start();
 
 //Ошибка создания экземпляра класса
 /*важность: 5
