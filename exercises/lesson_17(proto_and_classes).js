@@ -272,3 +272,71 @@ class Rabbit extends Animal {
 
 let rabbit = new Rabbit("Белый кролик");
 alert(rabbit.name);
+
+//Task of TMS
+/*
+Task 1 💻
+Создайте класс Developer
+
+Конструктор этого класса принимает один параметр name
+Реализуйте метод startWork который возвращает строку:
+name start work ...
+
+Реализуйте метод endtWork который возвращает строку:
+name end work ...
+
+Далее реализуйте два класса Frontend Backend которые будут наследовать методы из класса Developer
+
+Класс Frontend должен иметь свой уникальный метод buildWebSite который возвращает строку:
+
+name start build website
+
+Класс Frontend должен иметь свой уникальный ключ websiteName
+в который мы записываем название веб-сайта над которым будет работать разработчик.
+
+Класс Backend должен иметь свой уникальный метод buildServer который возвращает строку:
+
+name start build server
+
+Проинициализируйте два класса Frontend Backend и вызовите у них все доступные методы.
+
+    const john = new Frontend('john');
+    john.startWork()        // john start work ...
+    john.buildWebsite()     // john start build website Amazon
+    john.endWork()          // john end work ...
+    */
+
+class Developer {
+  constructor(name) {
+    this.name = name;
+  }
+  startWork() {
+    return `${this.name} start work`;
+  }
+  endWork() {
+    return `${this.name} end work`;
+  }
+}
+
+class Frontend extends Developer {
+  websiteName = "Google";
+  buildWebSite() {
+    return `${this.name} start build website ${this.websiteName}`;
+  }
+}
+
+class Backend extends Developer {
+  buildServer() {
+    return `${this.name} start build server`;
+  }
+}
+
+const andrew = new Frontend("Andrew");
+console.log(andrew.startWork());
+console.log(andrew.buildWebSite());
+console.log(andrew.endWork());
+
+const karina = new Backend("Karina");
+console.log(karina.startWork());
+console.log(karina.buildServer());
+console.log(karina.endWork());
