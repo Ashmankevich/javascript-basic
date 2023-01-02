@@ -28,3 +28,18 @@ function missNumsFinder(arr) {
   return arrMissNum;
 }
 missNumsFinder([8, 10, 11, 7, 3, 15, 6, 1, 14, 5, 12]);
+
+//best practice
+function missNumsFinder(arr) {
+  let results = [];
+  let arrClean = Array(arr.length).fill(0);
+
+  for (let i = 0; i < arr.length; i++) arrClean[arr[i] - 1] = arr[i];
+
+  for (let j = 0; j < arrClean.length; j++) {
+    arrClean[j] !== j + 1 ? results.push(j + 1) : null;
+  }
+
+  return results;
+}
+missNumsFinder([8, 10, 11, 7, 3, 15, 6, 1, 14, 5, 12]);
