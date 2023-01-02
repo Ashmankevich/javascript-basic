@@ -20,10 +20,21 @@ amount of tests: 20
 Enjoy it.
 */
 
+//first solution
 function missNumsFinder(arr) {
   let arrMissNum = [];
   for (let i = 1; i <= Math.max(...arr); i++)
     arr.includes(i) ? null : arrMissNum.push(i);
+
+  return arrMissNum;
+}
+missNumsFinder([8, 10, 11, 7, 3, 15, 6, 1, 14, 5, 12]);
+
+//second solution
+function missNumsFinder(arr) {
+  let arrMissNum = [];
+  for (let i = 1; i <= Math.max(...arr); i++)
+    arr.indexOf(i) !== -1 ? null : arrMissNum.push(i);
 
   return arrMissNum;
 }
