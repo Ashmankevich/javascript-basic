@@ -19,14 +19,7 @@ function high(x) {
     return sum;
   });
 
-  let getMaxOfArray = function (arrNumber) {
-    return Math.max.apply(null, arrNumber);
-  };
-
-  let index = arrNumber.indexOf(getMaxOfArray(arrNumber));
-  let word = arr[index];
-
-  return word;
+  return arr[arrNumber.indexOf(Math.max(...arrNumber))];
 }
 high("man i need a taxi up to ubud");
 
