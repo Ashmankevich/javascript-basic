@@ -27,36 +27,19 @@ function upArray(arr) {
   if (check || arr.length == 0) {
     result = null;
   } else {
-    let arrWithoutZero = [];
     let arrZero = [];
-    for (let i = 0; i < arr.length; i++) {
-      (arr[i - 1] == undefined || arr[i - 1] == 0) &&
-      arr[i] == 0 &&
-      arr[i + 1] !== 0
-        ? arrZero.push(arr[i])
-        : arrWithoutZero.push(arr[i]);
-    }
-    console.log(arrZero);
-    console.log(arrWithoutZero);
+    for (let i = 0; i < arr.length && arr[i] == 0; i++) arrZero.push(arr[i]);
+    let arrWithoutZero = arr.slice(arrZero.length);
     let arr1;
     if (arrWithoutZero[arrWithoutZero.length - 1] == 0) {
       arrWithoutZero.splice([arrWithoutZero.length - 1], 1, 1);
       arr1 = arrWithoutZero;
     } else arr1 = String(BigInt(arrWithoutZero.join("")) + 1n).split("");
-
     result = arrZero.concat(arr1).map((item) => Number(item));
   }
   return result;
 }
 upArray([
-  0, 7, 7, 6, 8, 9, 7, 0, 1, 3, 0, 4, 5, 7, 6, 4, 1, 7, 1, 1, 6, 6, 5, 6, 8, 6,
-  1, 3, 6, 2, 1, 9, 3, 9, 2, 6, 8,
+  0, 0, 0, 7, 7, 6, 8, 9, 7, 0, 1, 3, 0, 4, 5, 7, 6, 4, 1, 7, 1, 1, 6, 6, 5, 6,
+  8, 6, 1, 3, 6, 2, 1, 9, 3, 9, 2, 6, 8,
 ]);
-
-let bigArr = [
-  7, 7, 6, 8, 9, 7, 0, 1, 3, 0, 4, 5, 7, 6, 4, 1, 7, 1, 1, 6, 6, 5, 6, 8, 6, 1,
-  3, 6, 2, 1, 9, 3, 9, 2, 6, 8,
-];
-
-let arr = String(BigInt(bigArr.join("")) + 1n).split("");
-console.log(arr);
