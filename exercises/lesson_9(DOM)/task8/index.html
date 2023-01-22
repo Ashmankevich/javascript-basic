@@ -1,0 +1,29 @@
+<!--
+Цветные часы с использованием setInterval
+Создайте цветные часы как в примере ниже:
+
+Для стилизации используйте HTML/CSS, JavaScript должен только обновлять время в элементах.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="clock">
+      <div class="hour">hh</div>
+      <div class="separator">:</div>
+      <div class="min">mm</div>
+      <div class="separator">:</div>
+      <div class="sec">ss</div>
+    </div>
+    <input type="button" onclick="clockStart()" value="Start" />
+    <input type="button" onclick="clockStop()" value="Stop" />
+    <script src="index.js"></script>
+  </body>
+</html>

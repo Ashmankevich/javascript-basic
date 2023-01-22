@@ -1,0 +1,15 @@
+#clock {
+   display: flex;
+}
+
+.hour {
+   color: red;
+}
+
+.min {
+   color: green;
+}
+
+.sec {
+   color: blue;
+}
