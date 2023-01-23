@@ -9,7 +9,7 @@ function showNotification({ top = 0, right = 0, className, html }) {
 
   document.body.append(div);
 
-  setTimeout(() => div.remove(), 1000);
+  setTimeout(() => div.remove(), 1500);
 }
 
 let i = 1;
@@ -20,4 +20,4 @@ setInterval(() => {
     html: "Hello " + i++,
     className: "welcome",
   });
-}, 1500);
+}, 2000);
