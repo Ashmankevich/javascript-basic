@@ -1,0 +1,61 @@
+body {
+  background-color: lightblue;
+}
+
+.container {
+  background-color: blueviolet;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.wrapper .btn {
+  font-size: 18px;
+  line-height: 22px;
+  color: whitesmoke;
+  display: block;
+  text-transform: capitalize;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.wrapper .delete-all,
+.wrapper .delete-last {
+  background-color: red;
+}
+
+.wrapper .add {
+  background-color: green;
+}
+
+.main-items {
+  margin: 50px 0;
+}
+
+.show-completed, .show-all {
+  background-color: orange;
+}
+
+.wrapper__all-count {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.wrapper__completed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=index.css.map */

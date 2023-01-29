@@ -1,8 +1,0 @@
-.container {
-   background-color: blueviolet;
-}
-
-.wrapper__main-items {
-   display: flex;
-   justify-content: space-around;
-}

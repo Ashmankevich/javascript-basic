@@ -4,16 +4,16 @@ container.className = "container";
 root.append(container);
 
 const mainItems = document.createElement("div");
-mainItems.className = "wrapper__main-items";
+mainItems.className = "wrapper main-items";
 container.append(mainItems);
 
 const btnDeleteAll = document.createElement("button");
-btnDeleteAll.className = "btn__delete-all";
+btnDeleteAll.className = "btn delete-all";
 btnDeleteAll.textContent = "Delete All";
 mainItems.append(btnDeleteAll);
 
 const btnDeleteLast = document.createElement("button");
-btnDeleteLast.className = "btn__delete-last";
+btnDeleteLast.className = "btn delete-last";
 btnDeleteLast.textContent = "Delete Last";
 mainItems.append(btnDeleteLast);
 
@@ -23,21 +23,21 @@ inputEnterTODO.setAttribute("placeholder", "Enter todo...");
 mainItems.append(inputEnterTODO);
 
 const btnAdd = document.createElement("button");
-btnAdd.className = "btn__add";
+btnAdd.className = "btn add";
 btnAdd.textContent = "Add";
 mainItems.append(btnAdd);
 
 const additionalItems = document.createElement("div");
-additionalItems.className = "wrapper__main-items";
+additionalItems.className = "wrapper addition-items";
 container.append(additionalItems);
 
 const btnShowCompleted = document.createElement("button");
-btnShowCompleted.className = "btn__show-completed";
+btnShowCompleted.className = "btn show-completed";
 btnShowCompleted.textContent = "Show Completed";
 additionalItems.append(btnShowCompleted);
 
 const btnShowAll = document.createElement("button");
-btnShowAll.className = "btn__show-all";
+btnShowAll.className = "btn show-all";
 btnShowAll.textContent = "Show All";
 additionalItems.append(btnShowAll);
 
@@ -51,17 +51,17 @@ divAllCount.className = "wrapper__all-count";
 additionalItems.append(divAllCount);
 const allCountName = document.createElement("p");
 allCountName.textContent = "All:";
-additionalItems.append(allCountName);
+divAllCount.append(allCountName);
 const allCount = document.createElement("p");
 allCount.textContent = "0";
-additionalItems.append(allCount);
+divAllCount.append(allCount);
 
 const completed = document.createElement("div");
 completed.className = "wrapper__completed";
 additionalItems.append(completed);
 const allCompletedName = document.createElement("p");
 allCompletedName.textContent = "Completed:";
-additionalItems.append(allCompletedName);
+completed.append(allCompletedName);
 const allCompleted = document.createElement("p");
 allCompleted.textContent = "2";
-additionalItems.append(allCompleted);
+completed.append(allCompleted);

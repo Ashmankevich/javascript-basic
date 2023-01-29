@@ -1,0 +1,58 @@
+$colorBackgroundBtnPositive: green;
+$colorBackgroundBtnNegative: red;
+$colorBackgroundBtnNeutral: orange;
+$colorTextBtn: whitesmoke;
+
+@mixin Btn {
+  font-size: 18px;
+  line-height: 22px;
+  color: $colorTextBtn;
+  display: block;
+  text-transform: capitalize;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+body {
+  background-color: lightblue;
+}
+
+.container {
+  background-color: blueviolet;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+  .btn {
+    @include Btn;
+  }
+  .delete-all,
+  .delete-last {
+    background-color: $colorBackgroundBtnNegative;
+  }
+  .add {
+    background-color: $colorBackgroundBtnPositive;
+  }
+}
+
+.main-items{
+   margin: 50px 0;
+}
+
+.show-completed, .show-all {
+  background-color: $colorBackgroundBtnNeutral;
+}
+
+.wrapper__all-count {
+  display: flex;
+}
+
+.wrapper__completed {
+  display: flex;
+}
