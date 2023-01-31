@@ -119,7 +119,8 @@ body {
   margin: 0 15px;
 }
 
-.show-all, .show-completed {
+.show-all,
+.show-completed {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 15%;
           flex: 0 1 15%;
@@ -146,7 +147,8 @@ body {
   padding-bottom: 25px;
 }
 
-.wrapper__all-count, .wrapper__completed {
+.wrapper__all-count,
+.wrapper__completed {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -154,9 +156,37 @@ body {
       align-self: center;
 }
 
-.text-count-name, .text-all-count, .text-completed-name, .text-all-completed {
+.text-count-name,
+.text-all-count,
+.text-completed-name,
+.text-all-completed {
   color: white;
   font-size: 20px;
   margin: 0;
+}
+
+.todo-item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 40%;
+          flex: 0 1 40%;
+  margin: 25px auto;
+  border: 3px solid black;
+  border-radius: 15px;
+  padding: 30px;
+}
+
+.todo-input {
+  margin: 0 20px;
+  padding: 0 20px;
+  font-size: 14px;
+  line-height: 19px;
+  border: none;
+  border-radius: 10px;
+  -webkit-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+}
+
+.todo-input:focus {
+  outline: 0;
 }
 /*# sourceMappingURL=index.css.map */

@@ -68,7 +68,7 @@ body {
   }
 }
 .add {
-   flex: 0 1 15%;
+  flex: 0 1 15%;
   background-color: $colorBackgroundBtnPositive;
   &:hover {
     background-color: $colorBtnHoverPositive;
@@ -102,8 +102,9 @@ body {
   margin: 0 15px;
 }
 
-.show-all, .show-completed {
-   flex: 0 1 15%;
+.show-all,
+.show-completed {
+  flex: 0 1 15%;
 }
 
 .show-completed,
@@ -122,13 +123,29 @@ body {
   padding-bottom: 25px;
 }
 
-.wrapper__all-count, .wrapper__completed {
+.wrapper__all-count,
+.wrapper__completed {
   display: flex;
   align-self: center;
 }
 
-.text-count-name, .text-all-count, .text-completed-name, .text-all-completed {
-   color: $colorText;
-   font-size: 20px;
-   margin:0;
+.text-count-name,
+.text-all-count,
+.text-completed-name,
+.text-all-completed {
+  color: $colorText;
+  font-size: 20px;
+  margin: 0;
+}
+
+.todo-item {
+  flex: 0 1 40%;
+  margin: 25px auto;
+  border: 3px solid black;
+  border-radius: 15px;
+  padding: 30px;
+}
+
+.todo-input {
+   @include Input()
 }
