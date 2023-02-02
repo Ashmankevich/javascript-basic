@@ -189,4 +189,11 @@ body {
 .todo-input:focus {
   outline: 0;
 }
+
+.list-todo {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 /*# sourceMappingURL=index.css.map */

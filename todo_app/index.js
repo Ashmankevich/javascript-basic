@@ -74,27 +74,37 @@ const listTodo = document.createElement("div");
 listTodo.className = "wrapper list-todo";
 container.append(listTodo);
 
-const wrapperTodoItem = document.createElement("div");
-wrapperTodoItem.className = "wrapper todo-item";
-listTodo.append(wrapperTodoItem);
+function addTodoItem() {
+  const wrapperTodoItem = document.createElement("div");
+  wrapperTodoItem.className = "wrapper todo-item";
+  listTodo.append(wrapperTodoItem);
 
-const btnDone = document.createElement("button");
-btnDone.className = "todo-btn-done";
-wrapperTodoItem.append(btnDone);
+  const btnDone = document.createElement("button");
+  btnDone.className = "todo-btn-done";
+  wrapperTodoItem.append(btnDone);
 
-const textTodo = document.createElement("input");
-textTodo.className = "todo-input";
-textTodo.setAttribute("placeholder", "Todo text...");
-wrapperTodoItem.append(textTodo);
+  const textTodo = document.createElement("input");
+  textTodo.className = "todo-input";
+  textTodo.setAttribute("placeholder", "Todo text...");
+  wrapperTodoItem.append(textTodo);
 
-const wrapperCloseAndDate = document.createElement("div");
-wrapperCloseAndDate.className = "wrapper todo-close";
-wrapperTodoItem.append(wrapperCloseAndDate);
+  const wrapperCloseAndDate = document.createElement("div");
+  wrapperCloseAndDate.className = "wrapper todo-close";
+  wrapperTodoItem.append(wrapperCloseAndDate);
 
-const closeTodo = document.createElement("button");
-closeTodo.className = "todo-close";
-wrapperCloseAndDate.append(closeTodo);
+  const closeTodo = document.createElement("button");
+  closeTodo.className = "todo-close";
+  wrapperCloseAndDate.append(closeTodo);
 
-const dateTodo = document.createElement("div");
-dateTodo.className = "todo-date";
-wrapperCloseAndDate.append(dateTodo);
+  const dateTodo = document.createElement("div");
+  dateTodo.className = "todo-date";
+  wrapperCloseAndDate.append(dateTodo);
+}
+
+btnAdd.addEventListener("click", addTodoItem);
+
+function removeTodoList() {
+  listTodo.innerHTML = "";
+}
+
+btnDeleteAll.addEventListener("click", removeTodoList);

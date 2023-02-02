@@ -149,3 +149,7 @@ body {
 .todo-input {
    @include Input()
 }
+
+.list-todo {
+   flex-direction: column;
+}
