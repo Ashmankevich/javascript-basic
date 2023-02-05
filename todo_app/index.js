@@ -92,13 +92,36 @@ function addTodoItem() {
   wrapperCloseAndDate.className = "wrapper todo-close";
   wrapperTodoItem.append(wrapperCloseAndDate);
 
-  const closeTodo = document.createElement("button");
+  const closeTodo = document.createElement("div");
   closeTodo.className = "todo-close";
   wrapperCloseAndDate.append(closeTodo);
+
+  const btnCloseTodo = document.createElement("span");
+  btnCloseTodo.className = "btn-close";
+  closeTodo.append(btnCloseTodo);
 
   const dateTodo = document.createElement("div");
   dateTodo.className = "todo-date";
   wrapperCloseAndDate.append(dateTodo);
+
+  dateTodo.append(getDate());
+
+  btnCloseTodo.addEventListener("click", removeItemTodo);
+
+  function removeItemTodo() {
+    wrapperTodoItem.style.backgroundColor = "pink";
+    setTimeout(() => wrapperTodoItem.remove(), 1000);
+  }
+}
+
+function getDate() {
+  let date = new Date();
+  let year = date.getFullYear();
+  let month = date.getMonth();
+  let day = date.getDate();
+  let hour = date.getHours();
+  let min = date.getMinutes();
+  return `${day}/${month}/${year} - ${hour}:${min}`;
 }
 
 btnAdd.addEventListener("click", addTodoItem);

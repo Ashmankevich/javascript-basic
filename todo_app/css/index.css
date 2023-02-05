@@ -196,4 +196,47 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+
+.todo-date {
+  color: white;
+  font-size: 14px;
+  padding-top: 20px;
+}
+
+.todo-close {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.btn-close {
+  position: absolute;
+  right: 0px;
+  top: -23px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.btn-close:before,
+.btn-close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 2px;
+  background-color: #ec7979;
+}
+
+.btn-close:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.btn-close:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
 /*# sourceMappingURL=index.css.map */
