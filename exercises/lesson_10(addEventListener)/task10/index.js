@@ -1,8 +1,9 @@
-contents.onclick = function (event) {
-  if (event.target.nodeName != "A") return;
-
-  let href = event.target.getAttribute("href");
-  let ask = confirm(`leave for ${href}?`);
-
-  if (!ask) return false;
-};
+contents.addEventListener("click", (event) => {
+  if (event.target.nodeName == "A") {
+    let quest = confirm(`Leave for ${event.target.href}?`);
+    quest == false ? event.preventDefault() : null;
+  } else if (event.target.parentNode.hasAttribute("href")) {
+    let quest = confirm(`Leave for ${event.target.parentNode.href}?`);
+    quest == false ? event.preventDefault() : null;
+  } else return;
+});
