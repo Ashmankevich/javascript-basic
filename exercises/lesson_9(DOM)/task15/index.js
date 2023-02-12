@@ -1,21 +1,34 @@
-let elemCoords = document.getElementById("coords");
-let coords = elemCoords.getBoundingClientRect();
+function positionAt(anchor, position, elem) {
+  let anchorCoords = anchor.getBoundingClientRect();
+  switch (position) {
+    case "top":
+      elem.style.left = anchorCoords.left + "px";
+      elem.style.top = anchorCoords.top - elem.offsetHeight + "px";
+      break;
 
-let elemField = document.getElementById("field");
-let field = elemField.getBoundingClientRect();
+    case "right":
+      elem.style.left = anchorCoords.right + "px";
+      elem.style.top = anchorCoords.top + "px";
+      break;
 
-let answer1 = [coords.left, coords.top];
-let answer2 = [coords.left + coords.width, coords.top + coords.height];
-let answer3 = [
-  coords.left + elemField.clientLeft,
-  coords.top + elemField.clientTop,
-];
-let answer4 = [
-  coords.right - elemField.clientLeft,
-  coords.bottom - elemField.clientTop,
-];
+    case "bottom":
+      elem.style.left = anchorCoords.left + "px";
+      elem.style.top = anchorCoords.bottom + "px";
+      break;
+  }
+}
 
-alert(answer1);
-alert(answer2);
-alert(answer3);
-alert(answer4);
+function showNote(anchor, position, html) {
+  let note = document.createElement("div");
+  note.className = "note";
+  note.innerHTML = html;
+  document.body.append(note);
+
+  positionAt(anchor, position, note);
+}
+
+let blockquote = document.querySelector("blockquote");
+
+showNote(blockquote, "top", "note above");
+showNote(blockquote, "right", "note at the right");
+showNote(blockquote, "bottom", "note below");

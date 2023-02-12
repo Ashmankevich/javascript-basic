@@ -1,14 +1,3 @@
-<!--
-Узнать ширину полосы прокрутки
-
-Напишите код, который возвращает ширину стандартной полосы прокрутки.
-
-Для Windows она обычно колеблется от 12px до 20px.
-Если браузер не выделяет место под полосу прокрутки
-(так тоже бывает, она может быть прозрачной над текстом), тогда значение может быть 0px.
-
-P.S. Ваш код должен работать в любом HTML-документе, независимо от его содержимого.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,8 +5,23 @@ P.S. Ваш код должен работать в любом HTML-докуме
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
+   <style>
+      #field {
+        width: 200px;
+        border: 10px groove black;
+        background-color: #00FF00;
+        position: relative;
+      }
+      #ball {
+        position: absolute;
+      }
+    </style>
 </head>
 <body>
-   <script src="index.js"></script>
+   <div id="field">
+      <img src="https://en.js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>

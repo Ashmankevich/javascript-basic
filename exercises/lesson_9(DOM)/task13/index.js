@@ -1,8 +1,8 @@
-let div = document.createElement("div");
-div.style.overflowY = "scroll";
-div.style.width = "100px";
-div.style.height = "100px";
-document.body.append(div);
-let scrollbar = div.offsetWidth - div.clientWidth;
-div.remove();
-alert(scrollbar);
+let ball = document.getElementById("ball");
+let field = document.getElementById("field");
+
+ball.width = "40";
+ball.height = "40";
+
+ball.style.left = field.clientWidth / 2 - ball.offsetWidth / 2 + "px";
+ball.style.top = field.clientHeight / 2 - ball.offsetHeight / 2 + "px";
