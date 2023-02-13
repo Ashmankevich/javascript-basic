@@ -1,0 +1,29 @@
+<!--
+Отследить одновременное нажатие
+
+Создайте функцию runOnKeys(func, code1, code2, ... code_n),
+которая запускает func при одновременном нажатии клавиш с кодами code1, code2, …, code_n.
+
+Например, код ниже выведет alert при одновременном нажатии клавиш "Q" и "W" 
+(в любом регистре, в любой раскладке)
+
+runOnKeys(
+  () => alert("Привет!"),
+  "KeyQ",
+  "KeyW"
+);
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="index.css">
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <p>Нажмите "Q" и "W" вместе (язык значения не играет).</p>
+   <script src="index.js"></script>
+</body>
+</html>
