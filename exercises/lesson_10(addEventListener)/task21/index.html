@@ -1,0 +1,43 @@
+<!--
+Модальное диалоговое окно с формой
+
+Создайте функцию showPrompt(html, callback),
+которая выводит форму с сообщением (html), полем ввода и кнопками OK/ОТМЕНА.
+
+Пользователь должен ввести что-то в текстовое поле и нажать Enter или кнопку «OK», 
+после чего должна вызываться функция callback(value) со значением поля.
+Если пользователь нажимает Esc или кнопку «ОТМЕНА», тогда вызывается callback(null).
+В обоих случаях нужно завершить процесс ввода и закрыть диалоговое окно с формой.
+
+Требования:
+
+Форма должна быть в центре окна.
+Форма является модальным окном, это значит, что никакое взаимодействие
+с остальной частью страницы невозможно, пока пользователь не закроет его.
+При показе формы, фокус должен находиться сразу внутри <input>.
+Клавиши Tab/Shift+Tab должны переключать фокус между полями формы,
+не позволяя ему переходить к другим элементам страницы.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="index.css">
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body style="height:3000px">
+   <h2>Кликните на кнопку ниже</h2>
+   <input type="button" value="Кликните, чтобы увидеть форму" id="show-button">
+   <div id="prompt-form-container">
+      <form id="prompt-form">
+        <div id="prompt-message"></div>
+        <input name="textInput" type="text">
+        <input type="submit" value="Ok">
+        <input type="button" name="cancel" value="Отмена">
+      </form>
+    </div>
+   <script src="index.js"></script>
+</body>
+</html>
