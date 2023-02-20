@@ -1,6 +1,8 @@
+import { container } from "./container.js";
+import { getDate } from "./date.js";
 const root = document.getElementById("root");
-const container = document.createElement("div");
-container.className = "container";
+/*const container = document.createElement("div");
+container.className = "container";*/
 root.append(container);
 
 const mainItems = document.createElement("div");
